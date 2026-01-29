@@ -1,0 +1,429 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.navbar{
+    display:  flex;
+    align-items: center;
+    padding: 20px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: #555;
+}
+p{
+    clear: #555
+}
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+    width: 50%; /* Set the desired width */
+    height: 70%; /* Set the desired height */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Set a background color to make the chatbox opaque */
+    z-index: 9999; /* Set a high z-index value */
+}
+
+.chat-container {
+    padding: 10px;
+    height: calc(100% - 50px);
+}
+
+.chat-header {
+    background-color: #4682B4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-messages {
+    height: calc(100% - 60px);   
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.chat-input input {
+    width: 85%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    width: 15%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #4682B4;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+
+#chatbox-toggle {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chatbox-toggle:hover {
+    background-color: #4682B4;
+}
+
+.message-bubble {
+    clear: both;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%; /* Limit the width of the bubble */
+    text-align: left;
+}
+
+.sent {
+    float: right;
+    background-color: #4682B4;
+    color: white;
+}
+
+.received {
+    float: left;
+    background-color: #f1f1f1;
+    white-space: pre-line;
+}
+
+/* Style the message text inside the bubble */
+.message-text {
+    word-wrap: break-word;
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+.btn{
+    display:  inline-block;
+    background: #ff523b;
+    color: white;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5;
+}
+.btn:hover{
+    background: #563434;
+}
+.header{
+    background: radial-gradient(#d5e1fa, #fff);
+}
+.header .row{
+    margin: 70px;
+}
+.categories{
+    margin: 60px 0;
+}
+.col-3{
+    flex-basis: 30px;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+.col-3 img{
+    width: 200px;
+}
+.small-container{
+    max-width: 1080px;
+    margin: auto; 
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.col-4{
+    flex-basis: 15%;
+    padding: 10px;
+    min-width: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.5s;
+}
+.col-4 img{
+    width: 150px;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height:  60px;
+    color: #555;
+}
+.word{
+    text-align: left;
+    margin: 0 auto 50px;
+    position: relative;
+    line-height:  60px;
+    color: #000000;
+    transform: translateX(+30%)
+}
+.title::after{
+    content: '';
+    background: #FFA500;
+    width: 120px;
+    height: 5px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h4{
+    color: #555;
+    font-weight: normal;
+}
+.col-4 p{
+    font-size: 14px;
+}
+.rating .fa{
+    color: #FFA500
+}
+.col-4:hover{
+    transform: translateY(-5px);
+}
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 19px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  /* testimonial*/
+
+.testimonial{
+    padding-top: 100px;
+}
+
+.testimonial .col-3{
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.testimonial .col-3 img{
+    width: 50px;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+
+.testimonial .col-3:hover{
+    transform: translateY(-10px);
+}
+.fa.fa-quote-left{
+    font-size: 34px;
+    color: #ff523b;
+}
+.fa.fa-quote-right{
+    font-size: 34px;
+    color: #ff523b;
+}
+
+.col-3 p{
+    font-size: 12px;
+    margin: 12px 0;
+    color: #777;
+}
+
+.testimonial .col-3 h3{
+    font-weight: 600;
+    color: #555;
+    font-size: 16px;
+}
+
+/* brands*/
+
+.brands{
+    margin: 100px auto;
+}
+
+.col-5 img{
+    height: 100px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.col-5 img:hover{
+    filter: grayscale(0%);
+}
+
+/*Footer*/
+
+.footer{
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p{
+    color: #8a8a8a;
+}
+
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 20px;
+    flex-basis: 12%;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}
+
+.footer-col-1{
+    min-width: 250px;
+    margin-bottom: 20px;
+    flex-basis: 30%;
+}
+.cer-img{
+    margin: 20px;
+}
+.cer-img img{
+    width: 50px;
+}
+
+.footer, hr{
+    margin: 20px 0;
+}
+.copyright{
+    text-align: center;
+}

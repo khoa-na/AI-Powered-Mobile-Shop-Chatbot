@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mobile shop</title>
+        <link rel="stylesheet"  href="{{ url_for('static', filename='styles/styles.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    <div class="popup_chatbox">
+        <button id="chatbox-toggle">Chat</button>
+        <div class="chat-popup" id="chat-popup">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <span class="close" id="chatbox-close">&times;</span>
+                    Chatbox
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Chat messages will appear here -->
+                    <div class="message-bubble sent">
+                        <div class="message-text">Hello</div>
+                    </div>
+                    <div class="message-bubble received">
+                        <div class="message-text">Hi, how can I help you?
+                            How to use me:
+                            - Search price: what is the price of + product
+                            - Example: what is the price of iphone 15
+                            - Search screen size: what is the screen size of + product
+                            - Example: what is the screen size of iphone 15
+                            - Search memory: what is the memory of + product
+                            - Example: what is the memory of of iphone 15
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Bạn nhắn gì đó">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='scripts/script.js')}}"></script>
+        <div class="header">
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="https://fptshop.com.vn"><img src="{{ url_for('static', filename='images/logo.png')}}" width="180" height="100" alt=""></a>
+                </div> 
+                <nav>
+                    <ul>
+                        <li><a href="https://fptshop.com.vn">Home page</a></li>
+                        <li><a href="https://fptshop.com.vn/dien-thoai">Product</a></li>
+                        <li><a href="https://fptshop.com.vn/gioi-thieu">About us</a></li>
+                        <li><a href="https://fptshop.com.vn/lien-he">Contact</a></li>
+                    </ul>
+                 </nav>
+                 <a href="https://fptshop.com.vn/cart"><img src="{{ url_for('static', filename='images/cart.png')}}" width="30px" height="30px"></a>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Buy a phone from us<br>Cheap price!</h1>
+                    <p>Not always you can buy phones as cheap as our shop.</p>
+                    <a href="https://fptshop.com.vn" class="btn">Explore &#8594</a>
+                </div>
+                <div class="col-2">
+                    <img src="{{ url_for('static', filename='images/hình điện thoại.png')}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="categories">
+            <div class="small-container">
+                <h2 class="title">Famous Collection</h2>
+                <div class = "row">
+                    <div class ="col-3">
+                        <a href="https://fptshop.com.vn/dien-thoai/apple-iphone?sort=ban-chay-nhat">
+                            <img src="{{ url_for('static', filename='images/iphone-15-pro-max.jpg')}}">
+                            <h4 class="word">Iphone</h4>
+                        </a>
+                    </div>
+                    
+                    <div class ="col-3">
+                        <a href="https://fptshop.com.vn/dien-thoai/samsung?sort=ban-chay-nhat">
+                            <img src="{{ url_for('static', filename='images/Samsung_galaxy_s23_Ultra.png')}}">
+                            <h4 class="word">Samsung</h4>
+                        </a>
+                    </div>
+                    <div class ="col-3">
+                        <a href="https://fptshop.com.vn/dien-thoai/oppo?sort=ban-chay-nhat">
+                            <img src="{{ url_for('static', filename='images/oppo_reno_10.jpeg')}}">
+                            <h4 class="word">Oppo</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="small-container">
+            <h2 class="title">Famous Product</h2>
+            <div class="row">
+                <div class ="col-4">
+                    {% for row in data1 %}
+                    <a href="https://fptshop.com.vn/dien-thoai/iphone-15-pro-max">
+                        <img src="{{ url_for('static', filename='images/iphone-15-pro-max.jpg')}}">
+                        <h4>Iphone 15 Pro Max</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                    </div>
+                    <p>{{ row[1] }} USD</p>
+                    {% endfor %}
+                </div>
+                <div class ="col-4">
+                    {% for row in data2 %}
+                    <a href="https://fptshop.com.vn/dien-thoai/iphone-15-pro">
+                        <img src="{{ url_for('static', filename='images/iphone-15-pro.jpg')}}">
+                        <h4>Iphone 15 Pro</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-o" ></i>
+                    </div>
+                    <p>{{ row[1] }} USD</p>
+                    {% endfor %}
+                </div>
+                <div class ="col-4">
+                    {% for row in data3 %}
+                    <a href="https://fptshop.com.vn/dien-thoai/samsung-galaxy-z-fold5?dung-luong=256-gb">
+                        <img src="{{ url_for('static', filename='images/Samsung_Galaxy_Z_Fold5.png')}}">
+                        <h4>Samsung Galaxy Z Fold 5</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star-half-o" ></i>
+                    </div>
+                    <p>{{ row[1] }} USD</p>
+                    {% endfor %}
+                </div>
+                <div class ="col-4">
+                    {% for row in data4 %}
+                    <a href="https://fptshop.com.vn/dien-thoai/oppo-find-n2-flip">
+                        <img src="{{ url_for('static', filename='images/OPPO_Find_N2_Flip.png')}}">
+                        <h4>Oppo Find N2 Flip</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                    </div>
+                    <p>{{ row[1] }} USD</p>
+                    {% endfor %}
+                </div>
+                <div class ="col-4">
+                    {% for row in data5 %}
+                    <a href="https://fptshop.com.vn/dien-thoai/samsung-galaxy-s23-plus?dung-luong=256-gb">
+                        <img src="{{ url_for('static', filename='images/Samsung_galaxy_s23_Ultra.png')}}">
+                        <h4>Samsung Galaxy S23 Plus</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                        <i class="fa fa-star" ></i>
+                    </div>
+                    <p>{{ row[1] }} USD</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+<!--------Đánh giá cửa hàng------------>
+
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                        <div class="col-3">
+                            <i class="fa fa-quote-left"></i>
+                            <p>I couldn't be more pleased with the service at your phone store! Your staff is friendly and supportive.
+                               I bought a new phone here and I'm very happy with the product and the reasonable price.
+                               There would be no reason why I wouldn't come back again!</p>
+                            <i class="fa fa-quote-right"></i>
+                            <div class="rating">
+                                <i class="fa fa-star" ></i>
+                                <i class="fa fa-star" ></i>
+                                <i class="fa fa-star" ></i>
+                                <i class="fa fa-star" ></i>
+                                <i class="fa fa-star" ></i>                            
+                            </div>
+                            <img src="{{ url_for('static', filename='images/user-1.png')}}">
+                            <h3>Sarah</h3>
+                        </div>
+                        
+
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Your phone store is truly a great place to shop. Vast and high quality product selection, along with friendly and dedicated staff.
+                           I found my dream phone here and I couldn't be happier with my decision.
+                           Thank you for your wonderful shopping experience!</p>
+                        <i class="fa fa-quote-right"></i>
+                        <div class="rating">
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/user-2.png')}}">
+                        <h3>James</h3>
+                    </div>
+
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>This is my first time buying a phone at your store and I'm very impressed.
+                           Great customer service, dedicated and enthusiastic help.
+                           Quality products and reasonable prices. I will share this positive experience with my family and friends and will definitely come back to shop here in the future.
+                           Thank you!</p>
+                        <i class="fa fa-quote-right"></i>
+                        <div class="rating">
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/user-3.png')}}">
+                        <h3>Emma</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---------brands------>
+        <div class="brands">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="{{ url_for('static', filename='images/apple_logo.png')}}">                        
+                    </div>
+                    <div class="col-5">
+                        <img src="{{ url_for('static', filename='images/samsung_logo.png')}}">                        
+                    </div>
+                    <div class="col-5">
+                        <img src="{{ url_for('static', filename='images/oppo_logo.png')}}">                        
+                    </div>  
+                    <div class="col-5">
+                        <img src="{{ url_for('static', filename='images/xiaomi_logo.png')}}">                        
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <!-------footer-------->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-3">
+                        <h3>Certification</h3>
+                        <p>Certifications achieved:</p>
+                        <div class="cer-img">
+                            <img src="{{ url_for('static', filename='images/ft-img3.png')}}">
+                            <img src="{{ url_for('static', filename='images/ft-img4.png')}}">
+                            <img src="{{ url_for('static', filename='images/ft-img5.png')}}">
+                        </div>
+
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Our policy</h3>
+                        <ul>
+                            <li><a href="https://fptshop.com.vn/ho-tro/chinh-sach-doi-san-pham">Return policy</a></li>
+                            <li><a href="https://fptshop.com.vn/ho-tro/chinh-sach-bao-hanh">Warranty Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li><a href="https://www.facebook.com/FPTShopOnline">Facebook</a></li>
+                            <li><a href="https://zalo.me/2659487666103055748">Zalo</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Bản quyền bởi nhóm 5 năm 2023</p>
+            </div>
+        </div>
+
+    </body>
+</html>
+        

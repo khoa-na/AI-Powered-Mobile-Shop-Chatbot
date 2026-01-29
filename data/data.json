@@ -1,0 +1,56 @@
+{
+   "intents":[
+    {
+        "patterns":[
+            "Hi",
+            "Hey",
+            "Hello"
+        ],
+        "responses":[
+            "Hello, Thanks for visiting my shop",
+            "Hi there, what can I do for you?",
+            "Hi there, how can I help you?"
+        ]
+    },
+    {
+        "patterns":[
+            "Bye",
+            "GoodBye",
+            "See you later,"
+        ],
+        "responses":[
+            "Thanks for visiting my shop. ",
+            "Have a wonderful day.",
+            "Bye! Hope you come back soon."
+        ]
+    },
+    {
+        "patterns":[
+            "Hardware warranty period?",
+            "Can I return and exchange goods 1 for 1?",
+            "Battery and charger warranty period?",
+            "In case the delivery is far away, what is the warranty period?"
+        ],
+        "responses":[
+            "Hardware warranty is 12 months from the date of product delivery",  
+            "1 for 1 exchange within 15 days of first use from the date of product delivery",
+            "Battery and charger warranty is 3 months from the date of product handover",
+            "In case of sending goods far away, the warranty will be calculated from the date the customer receives the product from the carrier"
+        ]
+    },
+    {
+        "patterns":[
+            "",
+            "",
+            "",
+            ""
+        ],
+        "responses":[
+            "",  
+            "",
+            "",
+            ""
+        ]
+    }
+   ] 
+}
